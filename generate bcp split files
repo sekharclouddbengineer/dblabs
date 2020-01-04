@@ -1,10 +1,11 @@
 truncate table msdb..cnt
 go
 --create table msdb..cnt(aid int , bid int)
+declare @a int=21,@max int =62 ,@split int =20
+	
+declare @cnt int =@a
 
-declare @cnt int =0, @a int=3,@max int =111 ,@split int =10
 
-select @split
 while @cnt <= @max
 	begin
 
