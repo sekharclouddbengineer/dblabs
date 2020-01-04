@@ -1,0 +1,21 @@
+truncate table msdb..cnt
+go
+--create table msdb..cnt(aid int , bid int)
+
+declare @cnt int =0, @a int=3,@max int =111 ,@split int =10
+
+select @split
+while @cnt <= @max
+	begin
+
+	set @cnt = @cnt + @split
+
+	
+	if @cnt>@max insert into msdb..cnt select @a,@cnt-(@cnt-@max)
+	else insert into msdb..cnt select  @a,@cnt
+	set @a = @cnt
+
+	continue
+	end
+
+	select * from msdb..cnt
